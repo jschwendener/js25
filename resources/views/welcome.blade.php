@@ -4,12 +4,79 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Jonas Schwendener</title>
+        @php
+            $title = 'Jonas Schwendener – Co-founder & Lead Developer at Blond';
+            $description = 'Jonas Schwendener designs and develops software for the modern web. Co-founder and lead developer of Blond, the Swiss operating system for small businesses.';
+            $portrait = Vite::asset('resources/images/jonas.webp');
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+            $schema = [
+                '@context' => 'https://schema.org',
+                '@type' => 'ProfilePage',
+                '@id' => url('/').'#profile',
+                'url' => url('/'),
+                'name' => $title,
+                'description' => $description,
+                'inLanguage' => 'en',
+                'primaryImageOfPage' => $portrait,
+                'mainEntity' => [
+                    '@type' => 'Person',
+                    '@id' => url('/').'#person',
+                    'name' => 'Jonas Schwendener',
+                    'givenName' => 'Jonas',
+                    'familyName' => 'Schwendener',
+                    'url' => url('/'),
+                    'image' => $portrait,
+                    'description' => $description,
+                    'jobTitle' => 'Co-founder & Lead Developer',
+                    'worksFor' => [
+                        '@type' => 'Organization',
+                        'name' => 'Blond',
+                        'legalName' => 'StrawBlond GmbH',
+                        'url' => 'https://blond.swiss',
+                        'description' => 'The Swiss operating system for small businesses: quotes, invoices, time tracking, bookkeeping and banking in one place.',
+                    ],
+                    'alumniOf' => [
+                        '@type' => 'Organization',
+                        'name' => 'Racerfish',
+                        'url' => 'https://racerfish.com',
+                    ],
+                    'knowsAbout' => ['Software design', 'Web development', 'Web applications', 'Content management systems', 'SaaS'],
+                    'sameAs' => ['https://github.com/jschwendener'],
+                ],
+            ];
+        @endphp
+
+        <title>{{ $title }}</title>
+        <meta name="description" content="{{ $description }}">
+        <meta name="author" content="Jonas Schwendener">
+        <meta name="robots" content="index, follow, max-image-preview:large">
+        <link rel="canonical" href="{{ url('/') }}">
+
+        <meta name="theme-color" content="#171717">
+        <meta name="color-scheme" content="dark">
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+        <!-- Open Graph / social previews -->
+        <meta property="og:type" content="profile">
+        <meta property="og:site_name" content="Jonas Schwendener">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:url" content="{{ url('/') }}">
+        <meta property="og:title" content="{{ $title }}">
+        <meta property="og:description" content="{{ $description }}">
+        <meta property="og:image" content="{{ asset('og.jpg') }}">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Jonas Schwendener, co-founder and lead developer at Blond">
+        <meta property="profile:first_name" content="Jonas">
+        <meta property="profile:last_name" content="Schwendener">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <link rel="me" href="https://github.com/jschwendener">
+
+        <script type="application/ld+json">@json($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG)</script>
 
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -24,7 +91,7 @@
                             <div class="absolute left-1/2 -translate-x-px h-full border-l-2 border-orange-300"></div>
                         </div>
                         <h1 class="text-white motion-safe:animate-enter motion-safe:[animation-delay:100ms]">Hi, my name is Jonas Schwendener.</h1>
-                        <div class="text-gray-500 motion-safe:animate-enter motion-safe:[animation-delay:200ms]">I passionately design and develop software for the modern web.</div>
+                        <p class="text-gray-500 motion-safe:animate-enter motion-safe:[animation-delay:200ms]">I passionately design and develop software for the modern web.</p>
                     </div>
                     <div class="mt-12 2xl:text-lg space-y-4 text-balance">
                         <p class="motion-safe:animate-enter motion-safe:[animation-delay:350ms]">I'm a co-founder and lead developer of <a href="https://blond.swiss" class="text-white underline underline-offset-4 decoration-gray-700 hover:decoration-gray-500 transition-colors">Blond</a>, the Swiss operating system for small businesses. Quotes, invoices, time tracking, bookkeeping and banking live in one place, and an AI agent takes care of the busywork.</p>
