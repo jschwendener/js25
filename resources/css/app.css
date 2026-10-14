@@ -11,17 +11,21 @@
     --font-sans: 'Geist Variable', 'Geist', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 
-    --color-gray-50: var(--color-neutral-50);
-    --color-gray-100: var(--color-neutral-100);
-    --color-gray-200: var(--color-neutral-200);
-    --color-gray-300: var(--color-neutral-300);
-    --color-gray-400: var(--color-neutral-400);
-    --color-gray-500: var(--color-neutral-500);
-    --color-gray-600: var(--color-neutral-600);
-    --color-gray-700: var(--color-neutral-700);
-    --color-gray-800: var(--color-neutral-800);
-    --color-gray-900: var(--color-neutral-900);
-    --color-gray-950: var(--color-neutral-950);
+    --color-gray-50: #fbf7f8;
+    --color-gray-100: #f6eff0;
+    --color-gray-200: #e9dcde;
+    --color-gray-300: #d9c8cb;
+    --color-gray-400: #a8969a;
+    --color-gray-500: #857377;
+    --color-gray-600: #5e4f53;
+    --color-gray-700: #43363a;
+    --color-gray-800: #2a2023;
+    --color-gray-900: #1a1214;
+    --color-gray-950: #0d0809;
+
+    --color-crimson-300: #f7a9b8;
+    --color-crimson-400: #e85d7a;
+    --color-crimson-500: #c81e4a;
 }
 
 @theme {
